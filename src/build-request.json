@@ -1,0 +1,133 @@
+{
+  "kind": "build_request",
+  "title": "Home Health Care Services app for Chennai (service discovery + booking)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create the core user flows for a Home Health Care Services app focused on Chennai: browse services, view service details, and submit a booking request.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Home Health Care Services app for chennai"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can see a list of available home health care services for Chennai.",
+        "Users can open a service details view with clear information (service name, description, pricing, duration, coverage areas in Chennai, and what is included).",
+        "Users can submit a booking request with: selected service, patient name, phone, Chennai area/locality, preferred date/time, and notes.",
+        "After booking submission, the user sees a confirmation state and can view their submitted booking(s)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement backend data models and APIs to support service discovery and booking requests, with persistent storage in the single Motoko actor.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Home Health Care Services app for chennai"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend exposes query methods to list services and fetch a service by id.",
+        "Backend exposes update method(s) to create a booking request.",
+        "Bookings are stored persistently and can be listed for the currently authenticated user (or by a stable anonymous identifier if the user is not signed in).",
+        "All APIs return typed results with clear success/error cases (e.g., not found, validation errors)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add frontend pages/components for: Home (Chennai-focused landing), Services (search/filter), Service Details, and Booking form; wire them to the backend using React Query.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Home Health Care Services app for chennai"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Services list supports searching by keyword and filtering by Chennai area/locality (e.g., Adyar, T. Nagar, Velachery, Anna Nagar) and/or category.",
+        "Service Details page is reachable from the list and displays all key service info.",
+        "Booking form validates required fields and prevents submission until valid.",
+        "React Query handles loading, success, and error states for all reads/writes."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add a coherent visual theme appropriate for a healthcare services marketplace (English UI text), and apply it consistently across layout, typography, and components without using a blue/purple-dominant palette.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Home Health Care Services app for chennai"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The app has a consistent, polished theme (colors, typography, spacing) suitable for healthcare.",
+        "All user-facing text is in English.",
+        "Primary/secondary actions and form inputs have clear visual hierarchy and accessibility-friendly contrast.",
+        "Theme is applied consistently across all pages created in this build."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add static generated image assets (logo and hero illustration) and display them in the UI (no backend image routing).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Home Health Care Services app for chennai"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images are placed under frontend/public/assets/generated.",
+        "Home page displays the hero image and the app logo in the header/brand area.",
+        "Images are referenced via static paths and load correctly in production build."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor (no additional backend services).",
+    "Do not modify frontend paths designated as immutable by the platform; compose existing UI components instead of editing them directly.",
+    "Use English for all user-facing UI text."
+  ],
+  "nonGoals": [
+    "Real-time chat, WebSockets, or live location/maps integration.",
+    "Third-party authentication providers (only Internet Identity if authentication is used).",
+    "Payments processing or Stripe integration.",
+    "Advanced dispatching/agent assignment, staff scheduling, or ambulance/emergency workflows."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Minimal healthcare home-visit logo mark (hhc-chennai-logo.dim_512x512.png)",
+      "Warm, human-centered home healthcare hero illustration (hhc-chennai-hero.dim_1600x900.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [
+      "Build a Home Health Care Services app tailored for users in Chennai with service discovery and booking."
+    ],
+    "goalsToRemove": [],
+    "preferencesToAdd": [
+      "Use English for all user-facing text."
+    ],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

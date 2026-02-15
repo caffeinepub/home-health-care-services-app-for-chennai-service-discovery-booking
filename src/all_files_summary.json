@@ -1,0 +1,21 @@
+{
+  "backend/main.mo": "Defines service and booking types, stores them in maps, and exposes methods to add services, request bookings, and query services or bookings.",
+  "feature_evidence.json": "Contains feature evidence metadata listing features, related files, components, tests, and confidence levels.",
+  "frontend-file-summaries.txt": "Provides short descriptions of key frontend files including pages, hooks, layout, styles, and configuration.",
+  "frontend/index.css": "Tailwind base and utility setup defining OKLCH color variables and light/dark mode theme tokens.",
+  "frontend/index.html": "Basic HTML entry point loading the React application via main.tsx.",
+  "frontend/src/App.tsx": "Sets up TanStack Router routes and wraps pages in the AppLayout component.",
+  "frontend/src/components/layout/AppLayout.tsx": "Layout component with header, navigation, mobile menu, identity-based login/logout, and page wrapper.",
+  "frontend/src/hooks/useActor.ts": "React Query hook that creates and refreshes a backend actor based on Internet Identity authentication.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides Internet Identity auth context, handling login, logout, identity loading, and status tracking.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for loading services, single service details, submitting booking requests, and fetching user bookings via the backend actor.",
+  "frontend/src/index.css": "Tailwind base styles and custom CSS variables defining light and dark theme color palettes.",
+  "frontend/src/main.tsx": "App entry point that initializes React, React Query, Internet Identity provider, and global styles.",
+  "frontend/src/pages/Booking.tsx": "Booking form page allowing users to submit service booking requests with validation and ICP login handling.",
+  "frontend/src/pages/Home.tsx": "Homepage displaying a hero section and feature highlights with navigation to services and bookings.",
+  "frontend/src/pages/MyBookings.tsx": "User bookings page showing login prompt, loading state, and a list of the user's booking records.",
+  "frontend/src/pages/ServiceDetails.tsx": "Service detail page fetching and displaying a service with description, coverage, and booking navigation.",
+  "frontend/src/pages/Services.tsx": "React page that displays services with search, locality filter, and navigation to service details.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration extending theme colors, fonts, animations, and enabling plugins like typography and container queries.",
+  "project_state.json": "Project metadata describing current features, pending requests, image requirements, and overall app objectives."
+}

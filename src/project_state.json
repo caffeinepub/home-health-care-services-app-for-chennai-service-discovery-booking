@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a Home Health Care Services app focused on Chennai.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Minimal healthcare home-visit logo mark (hhc-chennai-logo.dim_512x512.png)\n- Warm, human-centered home healthcare hero illustration (hhc-chennai-hero.dim_1600x900.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-the-core-user-flows-for-a-home-health-care-services-app-focused-on-chennai-browse-services-view-service-details-and-submit-a-booking-request",
+      "title": "Create the core user flows for a Home Health Care Services app focused on Chennai: browse services, view service details, and submit a booking request.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-frontend-pages-components-for-home-chennai-focused-landing-services-search-filter-service-details-and-booking-form-wire-them-to-the-backend-using-react-query",
+      "title": "Add frontend pages/components for: Home (Chennai-focused landing), Services (search/filter), Service Details, and Booking form; wire them to the backend using React Query.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-coherent-visual-theme-appropriate-for-a-healthcare-services-marketplace-english-ui-text-and-apply-it-consistently-across-layout-typography-and-components-without-using-a-blue-purple-dominant-palette",
+      "title": "Add a coherent visual theme appropriate for a healthcare services marketplace (English UI text), and apply it consistently across layout, typography, and components without using a blue/purple-dominant palette.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-static-generated-image-assets-logo-and-hero-illustration-and-display-them-in-the-ui-no-backend-image-routing",
+      "title": "Add static generated image assets (logo and hero illustration) and display them in the UI (no backend image routing).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a Home Health Care Services app tailored for users in Chennai (service discovery and booking).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Implement backend data models and APIs to support service discovery and booking requests, with persistent storage in the single Motoko actor.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Home Health Care Services app for Chennai (service discovery + booking)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

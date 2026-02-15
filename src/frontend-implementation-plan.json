@@ -1,0 +1,169 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Chennai Home Health Care (discover services + booking) — Frontend",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Implement core Chennai user flows: browse services, view service details, submit booking request, and view submitted bookings with confirmation UI.",
+      "acceptanceCriteria": [
+        "Users can see a list of available home health care services for Chennai.",
+        "Users can open a service details view with clear information (service name, description, pricing, duration, coverage areas in Chennai, and what is included).",
+        "Users can submit a booking request with: selected service, patient name, phone, Chennai area/locality, preferred date/time, and notes.",
+        "After booking submission, the user sees a confirmation state and can view their submitted booking(s)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app shell + route wiring for Home, Services, Service Details, Booking, and My Bookings/confirmation states. Use shadcn-ui for consistent UI building blocks (e.g., buttons, inputs, cards) and verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/AppLayout.tsx",
+          "operation": "create",
+          "description": "Add a shared layout with header navigation (Home, Services, My Bookings) and a consistent content container. Display the brand/logo area in the header. Use shadcn-ui primitives where appropriate and verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "create",
+          "description": "Create Chennai-focused landing content (English), featuring a short value proposition, key service categories, and prominent calls-to-action to browse services and book. Include hero illustration placement per REQ-5. Use shadcn-ui for layout/CTA elements and verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/Services.tsx",
+          "operation": "create",
+          "description": "Create a services browsing page that reads services via React Query and supports client-side search/filter (keyword, locality/area, optional category). Each service card links to Service Details. Use shadcn-ui inputs/selects/cards and verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ServiceDetails.tsx",
+          "operation": "create",
+          "description": "Create a service details page (reachable from the list) that loads a single service and presents clear info (name/description/pricing) plus UI sections for duration, coverage areas in Chennai, and what’s included (frontend-presented copy if not provided by backend). Provide a primary action to start a booking for this service. Use shadcn-ui components and verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/Booking.tsx",
+          "operation": "create",
+          "description": "Create the booking request form page with required fields (selected service, patient name, phone, Chennai area/locality, preferred date/time, notes). Validate required fields and block submission until valid. Submit using a React Query mutation and show success/error and a confirmation state on success. Use shadcn-ui form controls and verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/MyBookings.tsx",
+          "operation": "create",
+          "description": "Create a page to list the current user’s submitted bookings using React Query, with empty/loading/error states and a link back to Services. Use shadcn-ui components for list presentation and verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/api/backendClient.ts",
+          "operation": "create",
+          "description": "Add a thin frontend client wrapper around the existing backend interface (getServices, getService, requestBooking, getAllBookings/getUserBookings as appropriate) to keep React Query hooks clean. Prefer using the core-infrastructure component’s backend connection configuration and verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/api/queries.ts",
+          "operation": "create",
+          "description": "Define React Query hooks for service list/details, booking submission mutation, and bookings list with consistent loading/error/success handling. Verify React Query integration patterns from the build-template-react setup before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useViewerIdentity.ts",
+          "operation": "create",
+          "description": "Provide a small hook to access the current principal/identity (or stable anonymous identifier) for fetching ‘My Bookings’ when needed by the backend. Integrate with the existing InternetIdentityProvider wiring in main.tsx and verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add and wire frontend pages for Home, Services (search/filter), Service Details, and Booking form; connect reads/writes using React Query with robust UI states.",
+      "acceptanceCriteria": [
+        "Services list supports searching by keyword and filtering by Chennai area/locality (e.g., Adyar, T. Nagar, Velachery, Anna Nagar) and/or category.",
+        "Service Details page is reachable from the list and displays all key service info.",
+        "Booking form validates required fields and prevents submission until valid.",
+        "React Query handles loading, success, and error states for all reads/writes."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Services.tsx",
+          "operation": "modify",
+          "description": "Ensure search + locality filtering UX is present (preset Chennai localities), including clear reset controls and accessible input labels. Use shadcn-ui input/select components and verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ServiceDetails.tsx",
+          "operation": "modify",
+          "description": "Ensure the details page is reachable via routing, handles loading/error states, and includes a clear ‘Book this service’ action that carries the selected service into the booking form. Use shadcn-ui components and verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/Booking.tsx",
+          "operation": "modify",
+          "description": "Add form validation rules (required fields, basic phone format), disable submit until valid, and implement mutation-driven success/error UI. Use shadcn-ui form controls and verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/api/queries.ts",
+          "operation": "modify",
+          "description": "Implement consistent React Query keys, caching strategy for services, and mutation invalidation for bookings. Ensure all reads/writes expose loading/success/error to the UI."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire pages into navigation and routing so all created views are reachable (Home → Services → Service Details → Booking → Confirmation/My Bookings). Use shadcn-ui navigation primitives if applicable and verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Apply a cohesive healthcare marketplace theme (English-only UI text) using a non blue/purple-dominant palette and consistent typography/spacing across new pages.",
+      "acceptanceCriteria": [
+        "The app has a consistent, polished theme (colors, typography, spacing) suitable for healthcare.",
+        "All user-facing text is in English.",
+        "Primary/secondary actions and form inputs have clear visual hierarchy and accessibility-friendly contrast.",
+        "Theme is applied consistently across all pages created in this build."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create global styling using Tailwind + shadcn-ui CSS variables (healthcare-appropriate warm neutrals/greens; avoid blue/purple-dominant primaries), set typography defaults, and ensure consistent spacing tokens. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust theme tokens (if needed) to support the chosen non-blue/purple palette and consistent radii/shadows for a polished healthcare look; ensure compatibility with shadcn-ui token usage. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/AppLayout.tsx",
+          "operation": "modify",
+          "description": "Apply theme-consistent header/footer styling, button hierarchy, and responsive layout patterns across navigation and shared sections. Use shadcn-ui components and verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Ensure landing page copy, headings, and CTAs follow the new theme and remain English-only, with accessible contrast and clear hierarchy. Use shadcn-ui components and verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add generated logo and hero illustration assets under public and render them in the header/brand area and Home page hero section.",
+      "acceptanceCriteria": [
+        "Generated images are placed under frontend/public/assets/generated.",
+        "Home page displays the hero image and the app logo in the header/brand area.",
+        "Images are referenced via static paths and load correctly in production build."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/hhc-chennai-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated static logo asset at the exact path frontend/public/assets/generated/hhc-chennai-logo.dim_512x512.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/hhc-chennai-hero.dim_1600x900.png",
+          "operation": "create",
+          "description": "Add the generated static hero illustration at the exact path frontend/public/assets/generated/hhc-chennai-hero.dim_1600x900.png."
+        },
+        {
+          "path": "frontend/src/components/layout/AppLayout.tsx",
+          "operation": "modify",
+          "description": "Render the logo image (frontend/public/assets/generated/hhc-chennai-logo.dim_512x512.png) in the header/brand area using a static public asset reference. Use shadcn-ui layout primitives as needed and verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Render the hero illustration (frontend/public/assets/generated/hhc-chennai-hero.dim_1600x900.png) prominently in the Home hero section with appropriate alt text and responsive layout. Use shadcn-ui components and verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

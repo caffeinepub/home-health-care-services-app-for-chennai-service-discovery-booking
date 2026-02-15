@@ -1,0 +1,12 @@
+{
+  "frontend/src/App.tsx": "Main application component that sets up TanStack Router with routes for Home, Services, ServiceDetails, Booking, and MyBookings pages, all wrapped in the AppLayout component.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for backend integration including useServices, useService, useRequestBooking, and useUserBookings with proper loading states and cache invalidation.",
+  "frontend/src/components/layout/AppLayout.tsx": "Shared layout component with responsive header navigation, logo display, mobile menu, authentication controls, and footer with attribution and branding.",
+  "frontend/src/pages/Home.tsx": "Landing page featuring hero section with generated image, value propositions, feature cards highlighting compassionate care and Chennai coverage, and call-to-action sections.",
+  "frontend/src/pages/Services.tsx": "Services browsing page with search functionality, Chennai locality filtering, service cards displaying pricing, and navigation to service details.",
+  "frontend/src/pages/ServiceDetails.tsx": "Detailed service view showing comprehensive information including duration, coverage areas, what's included, pricing, and booking action with sticky sidebar.",
+  "frontend/src/pages/Booking.tsx": "Booking request form with validation for patient information, location details, appointment preferences, success confirmation state, and authentication check.",
+  "frontend/src/pages/MyBookings.tsx": "User bookings list page displaying all booking requests with status badges, location, date/time information, and authentication requirement.",
+  "frontend/src/index.css": "Global styles with healthcare-appropriate OKLCH color system using teal primary and warm coral accent colors, avoiding blue/purple dominance, with full light and dark mode support.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with custom font stack, healthcare color palette, enhanced border radius, and custom shadow utilities."
+}
