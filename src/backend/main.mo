@@ -5,7 +5,9 @@ import Order "mo:core/Order";
 import Nat "mo:core/Nat";
 import Runtime "mo:core/Runtime";
 import Principal "mo:core/Principal";
+import Migration "migration";
 
+(with migration = Migration.run)
 actor {
   type Service = {
     id : Nat;
@@ -38,7 +40,7 @@ actor {
   let services = Map.empty<Nat, Service>();
   let bookings = Map.empty<Nat, BookingRequest>();
 
-  var nextServiceId = 1;
+  var nextServiceId = 4;
   var nextBookingId = 1;
 
   public shared ({ caller }) func addService(name : Text, description : Text, pricePerVisit : Nat) : async () {

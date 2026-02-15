@@ -1,36 +1,36 @@
 {
   "kind": "build_request",
-  "title": "Add more service packages (services) to browse and book",
+  "title": "Add Cancer Care service package to the catalog",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-6",
-      "text": "Pre-populate the backend with additional service packages so the Services page shows a larger catalog without requiring manual service creation.",
+      "id": "REQ-7",
+      "text": "Pre-populate the backend service catalog with a new Cancer Care service package so it appears in the Services list and can be booked like other services.",
       "target": "backend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "msg-1"
         ],
         "quotes": [
-          "Create more package"
+          "Add cancer"
         ]
       },
       "acceptanceCriteria": [
-        "On a fresh canister install (when there are no services yet), calling getServices returns a non-empty list with at least 8 distinct services.",
-        "Each pre-populated service has an English name and description and a non-zero pricePerVisit.",
-        "Pre-population does not create duplicates if the canister is already populated (i.e., it only seeds when services is empty)."
+        "Calling getServices() returns a Service entry whose name clearly indicates Cancer Care (for example, \"Cancer Care Package\"), with a non-empty English description and a non-zero pricePerVisit.",
+        "The new Cancer Care service can be opened via getService(serviceId) without trapping.",
+        "A booking request can be successfully submitted (requestBooking) for the Cancer Care service and appears in getUserBookings for the caller."
       ]
     }
   ],
   "constraints": [
-    "Keep all Motoko logic in the single backend actor (backend/main.mo).",
-    "Do not edit any files under frontend/src/components/ui or other immutablePaths listed in SYSTEM_CONTEXT.",
+    "Keep all backend logic in the existing single Motoko actor (backend/main.mo); do not introduce additional backend services.",
+    "Do not edit any frontend files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui.",
     "Use English for any user-facing text."
   ],
   "nonGoals": [
-    "Adding admin dashboards or role-based access control for creating/editing services.",
-    "Changing the booking flow, booking fields, or booking status lifecycle.",
-    "Introducing new third-party services or databases."
+    "Implementing specialized cancer-treatment workflows, clinician assignment, medical record storage, or tele-consultation features.",
+    "Adding third-party integrations (payments, SMS, email, analytics).",
+    "Changing the overall UI theme or navigation beyond what is required for the service to appear and be bookable."
   ],
   "imageRequirements": {
     "required": [],

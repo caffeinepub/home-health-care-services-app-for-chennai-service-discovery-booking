@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-15T18:49:27.536Z",
+  "generatedAt": "2026-02-15T19:03:47.209Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -11,8 +11,8 @@
     "implemented": 0,
     "items": [
       {
-        "id": "REQ-6",
-        "summary": "Pre-populate the backend with additional service packages so the Services page shows a larger catalog without requiring manual service creation.",
+        "id": "REQ-7",
+        "summary": "Pre-populate the backend service catalog with a new Cancer Care service package so it appears in the Services list and can be booked like other services.",
         "status": "unknown",
         "plannedFiles": [],
         "matchedFiles": []
@@ -20,8 +20,9 @@
     ]
   },
   "changedFiles": [
+    "backend/main.mo",
+    "backend/migration.mo",
     "build-request.json",
-    "build-template/README.md",
     "feature_evidence.json",
     "frontend-implementation-plan.json",
     "frontend/src/backend.d.ts",

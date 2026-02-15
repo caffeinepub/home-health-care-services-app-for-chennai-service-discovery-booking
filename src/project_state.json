@@ -1,9 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
+  "projectStateVersion": 7,
   "summary": "Build a Home Health Care Services app focused on Chennai.",
   "architectural_notes": [],
-  "known_issues": [],
+  "known_issues": [
+    "Domain/slug validation error encountered: must be 5–50 characters and contain only letters, numbers, and hyphens (current value included invalid characters)."
+  ],
   "isFixRequest": false,
   "existing_features": [
     {
@@ -61,10 +63,18 @@
         "REQ-6"
       ],
       "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Pre-populate the backend service catalog with a new Cancer Care service package so it appears in the Services list and can be booked like other services.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
     }
   ],
   "gameProjectType": "none",
-  "projectName": "Home Health Care Services app for Chennai (service discovery + booking)",
+  "projectName": "Olive home healthcare",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

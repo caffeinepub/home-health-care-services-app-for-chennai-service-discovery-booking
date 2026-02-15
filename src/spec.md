@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Ensure the Services page shows a larger catalog by seeding the backend with additional service packages on a fresh install.
+**Goal:** Add a new Cancer Care service package to the backend service catalog so it appears in the Services list and can be booked like other services.
 
 **Planned changes:**
-- Add backend seed logic to pre-populate services when the services list is empty.
-- Include at least 8 distinct service packages, each with an English name/description and a non-zero price per visit.
-- Ensure the seeding runs only once and does not create duplicates if services already exist.
+- Pre-populate the backend catalog with a new “Cancer Care” service entry including an English description and a non-zero pricePerVisit.
+- Ensure the new service is retrievable via getServices() and getService(serviceId) without errors.
+- Ensure bookings can be created for the Cancer Care service via requestBooking and are returned in getUserBookings.
 
-**User-visible outcome:** On a fresh install, the Services page displays a non-empty catalog (at least 8 services) without requiring manual service creation.
+**User-visible outcome:** Users can see the new Cancer Care service in the Services list, open its details, and submit a booking for it like any other service.
