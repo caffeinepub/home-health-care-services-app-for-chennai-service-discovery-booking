@@ -1,13 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Build the core service discovery and booking flows for a Chennai-focused Home Health Care Services app, backed by persistent storage in a single Motoko actor.
+**Goal:** Ensure the Services page shows a larger catalog by seeding the backend with additional service packages on a fresh install.
 
 **Planned changes:**
-- Backend: add typed data models and APIs to list services, fetch service details by id, create booking requests, and list a user’s submitted bookings (using authenticated user or stable anonymous identifier).
-- Frontend: create pages for Home (Chennai landing), Services (search + filters), Service Details, and Booking form; connect all reads/writes via React Query with loading/success/error states.
-- Frontend: implement booking form validation for required fields and show a confirmation state after submission.
-- Frontend: apply a consistent healthcare-appropriate visual theme (English text), avoiding a blue/purple-dominant palette.
-- Frontend: add static generated image assets (logo + hero) under `frontend/public/assets/generated` and display them in the header and Home page.
+- Add backend seed logic to pre-populate services when the services list is empty.
+- Include at least 8 distinct service packages, each with an English name/description and a non-zero price per visit.
+- Ensure the seeding runs only once and does not create duplicates if services already exist.
 
-**User-visible outcome:** Users can browse and filter Chennai home health care services, view full service details, submit a booking request, see a confirmation, and review their submitted bookings.
+**User-visible outcome:** On a fresh install, the Services page displays a non-empty catalog (at least 8 services) without requiring manual service creation.
